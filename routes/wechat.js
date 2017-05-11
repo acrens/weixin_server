@@ -8,6 +8,7 @@ var config = require('../config.js');
 router.use('/', wechat(config, function (req, res, next) {
     // 微信输入信息都在req.weixin上
     var message = req.weixin;
+    console.log('acrens：' + JSON.stringify(message));
     if (message.FromUserName === 'diaosi') {
         // 回复屌丝(普通回复)
         res.reply('hehe');
