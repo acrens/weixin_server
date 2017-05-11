@@ -5,10 +5,11 @@ var wechat = require('wechat');
 var config = require('../config.js');
 // console.log(config);
 
-router.use('/', wechat(config, function (req, res, next) {
+router.use('/', wechat(config, function(req, res, next) {
+    console.log(req);
+
     // 微信输入信息都在req.weixin上
     var message = req.weixin;
-    console.log('acrens：' + JSON.stringify(message));
     if (message.FromUserName === 'diaosi') {
         // 回复屌丝(普通回复)
         res.reply('hehe');
@@ -32,14 +33,12 @@ router.use('/', wechat(config, function (req, res, next) {
         });
     } else {
         // 回复高富帅(图文回复)
-        res.reply([
-            {
-                title: '你来我家接我吧',
-                description: '这是女神与高富帅之间的对话',
-                picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-                url: 'http://nodeapi.cloudfoundry.com/'
-            }
-        ]);
+        res.reply([{
+            title: '你来我家接我吧',
+            description: '这是女神与高富帅之间的对话',
+            picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
+            url: 'http://nodeapi.cloudfoundry.com/'
+        }]);
     }
 }));
 
