@@ -6,7 +6,7 @@ var config = require('../config.js');
 // console.log(config);
 
 router.use('/', function(req, res, next) {
-    console.log(req);
+    res.send(req.query.echostr);
 });
 
 // router.use('/', wechat(config, function(req, res, next) {
