@@ -34,7 +34,7 @@ app.use(express.query());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/wechat',wechat);
-app.use('/test', wechat(config, function(req, res, next) {
+app.use('/test', wechats(config, function(req, res, next) {
     console.log(req);
     // 微信输入信息都在req.weixin上 
     var message = req.weixin;
