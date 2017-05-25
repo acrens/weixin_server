@@ -10,6 +10,7 @@ var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var wechat = require('./routes/wechat');
+var upload = require('./routes/upload');
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/test', function(req, res, next) {
         res.end("false");
     }
 });
+app.use('/upload/image', upload.uploadImg);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
