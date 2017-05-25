@@ -19,7 +19,7 @@ exports.uploadImg = function(req, res) {
     return new Promise(function(resolve, reject) {
         new Promise(function(resolve, reject) {
             resolve({
-                access_token: ''
+                access_token: req.query.access_token
             });
         }).then(function(data) {
             let url = uploadUrl + 'access_token=' + data.access_token;
