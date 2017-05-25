@@ -32,12 +32,11 @@ exports.uploadImg = function(req, res) {
 
             request(opts).then(function(response) {
                 let returnData = response.body;
-                if (returnData) {
-                    resolve(returnData);
 
-                    res.send('添加成功');
+                if (returnData) {
+                    res.send(returnData);
                 } else {
-                    throw new Error('upload permanent material failed!');
+                    res.send(response);
                 }
             }).catch(function(err) {
                 reject(err);
